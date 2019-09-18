@@ -24,23 +24,26 @@ public class Game {
     private final StringProperty descripcion;
     private final StringProperty consola;
     private final StringProperty genero;
+    private final StringProperty imgURL;
 
     //Constructor con propiedades
-    public Game(String nombre, double valor, String descripcion, String consola, String genero, int id) {
+    public Game(String nombre, double valor, String descripcion, String consola, String genero, String imgURL, int id) {
         this.nombre = new SimpleStringProperty(nombre);
         this.valor = new SimpleDoubleProperty(valor);
         this.descripcion = new SimpleStringProperty(descripcion);
         this.consola = new SimpleStringProperty(consola);
         this.genero = new SimpleStringProperty(genero);
+        this.imgURL = new SimpleStringProperty(imgURL);
         this.id = new SimpleIntegerProperty(id);
     }
 
-    public Game(String nombre, double valor, String descripcion, String consola, String genero) {
+    public Game(String nombre, double valor, String descripcion, String consola, String genero, String imgURL) {
         this.nombre = new SimpleStringProperty(nombre);
         this.valor = new SimpleDoubleProperty(valor);
         this.descripcion = new SimpleStringProperty(descripcion);
         this.consola = new SimpleStringProperty(consola);
         this.genero = new SimpleStringProperty(genero);
+        this.imgURL = new SimpleStringProperty(imgURL);
     }
 
     public void setNombre(String Nombre) {
@@ -113,6 +116,18 @@ public class Game {
 
     public StringProperty generoProperty() {
         return genero;
+    }
+
+    public void setImgURL(String imgURL) {
+        this.imgURL.set(imgURL);
+    }
+
+    public String getImgURL() {
+        return imgURL.get();
+    }
+
+    public StringProperty ImgURLProperty() {
+        return imgURL;
     }
 
 }

@@ -7,6 +7,7 @@ package Controllers;
 
 import Beans.Game;
 import Persistencia.DataAdapters.tblGamesAdapter;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -24,6 +25,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
@@ -77,6 +79,9 @@ public class SceneGamesController implements Initializable {
     private TextField txtGenero;
 
     @FXML
+    private TextField txtImgURL;
+
+    @FXML
     private Label lblNombre;
 
     @FXML
@@ -116,7 +121,10 @@ public class SceneGamesController implements Initializable {
     private Button btnCancelar;
 
     @FXML
-    private ImageView img;
+    private ImageView ivwPortada;
+
+    @FXML
+    private ImageView ivwConsola;
 
     @FXML
     void select(MouseEvent event) {
@@ -129,6 +137,9 @@ public class SceneGamesController implements Initializable {
             lblDescripcion.setText(datoHorror.getDescripcion());
             lblConsola.setText(datoHorror.getConsola());
             lblGenero.setText(datoHorror.getGenero());
+            File file = new File(datoHorror.getImgURL());
+            Image image = new Image(file.toURI().toString());
+            ivwPortada.setImage(image);
         }
     }
 
@@ -143,6 +154,9 @@ public class SceneGamesController implements Initializable {
             lblDescripcion.setText(datoAccion.getDescripcion());
             lblConsola.setText(datoAccion.getConsola());
             lblGenero.setText(datoAccion.getGenero());
+            File file = new File(datoAccion.getImgURL());
+            Image image = new Image(file.toURI().toString());
+            ivwPortada.setImage(image);
         }
     }
 
@@ -157,6 +171,9 @@ public class SceneGamesController implements Initializable {
             lblDescripcion.setText(datoDisparos.getDescripcion());
             lblConsola.setText(datoDisparos.getConsola());
             lblGenero.setText(datoDisparos.getGenero());
+            File file = new File(datoDisparos.getImgURL());
+            Image image = new Image(file.toURI().toString());
+            ivwPortada.setImage(image);
         }
     }
 
@@ -209,7 +226,7 @@ public class SceneGamesController implements Initializable {
     @FXML
     void btnGuardar_ActionPerformed(ActionEvent event) {
         if (registroNuevo) {
-            Game nuevoGame = new Game(txtNombre.getText(), Double.parseDouble(txtValor.getText()), txtDescripcion.getText(), txtConsola.getText(), txtGenero.getText());
+            Game nuevoGame = new Game(txtNombre.getText(), Double.parseDouble(txtValor.getText()), txtDescripcion.getText(), txtConsola.getText(), txtGenero.getText(), txtImgURL.getText());
             tblgameadapter.Insert(nuevoGame);
             registroNuevo = false;
         } else {

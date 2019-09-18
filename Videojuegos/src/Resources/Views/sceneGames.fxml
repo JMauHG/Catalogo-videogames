@@ -93,11 +93,12 @@
                                  </opaqueInsets>
                               </HBox>
                               <Label fx:id="lblNombre" layoutX="189.0" layoutY="169.0" text="Nombre" />
-                              <Label fx:id="lblValor" layoutX="272.0" layoutY="242.0" text="Precio Venta" />
+                              <Label fx:id="lblValor" layoutX="289.0" layoutY="235.0" text="Precio Venta" />
                               <Label fx:id="lblDescripcion" layoutX="181.0" layoutY="202.0" text="Descripcion" />
-                              <Label fx:id="lblConsola" layoutX="190.0" layoutY="242.0" text="Consola" />
+                              <Label fx:id="lblConsola" layoutX="168.0" layoutY="234.0" text="Consola" />
                               <Label fx:id="lblGenero" layoutX="78.0" layoutY="242.0" text="Genero" />
-                              <ImageView fx:id="img" fitHeight="109.0" fitWidth="146.0" layoutX="138.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="ivwPortada" fitHeight="109.0" fitWidth="146.0" layoutX="138.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="ivwConsola" fitHeight="30.0" fitWidth="34.0" layoutX="216.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
@@ -107,22 +108,24 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TitledPane collapsible="false" layoutX="108.0" layoutY="47.0" prefHeight="277.0" prefWidth="385.0" text="Detalle de Divisas">
+                        <TitledPane collapsible="false" layoutX="101.0" layoutY="28.0" prefHeight="315.0" prefWidth="399.0" text="Detalle de Divisas">
                            <content>
-                              <AnchorPane prefHeight="284.0" prefWidth="371.0">
+                              <AnchorPane prefHeight="270.0" prefWidth="399.0">
                                  <children>
                                     <TextField fx:id="txtNombre" layoutX="123.0" layoutY="27.0" />
                                     <TextField fx:id="txtValor" layoutX="123.0" layoutY="54.0" />
                                     <TextField fx:id="txtDescripcion" layoutX="122.0" layoutY="82.0" />
+                                    <TextField fx:id="txtConsola" layoutX="122.0" layoutY="116.0" />
+                                    <TextField fx:id="txtGenero" layoutX="122.0" layoutY="148.0" />
+                                    <TextField fx:id="txtImgURL" layoutX="122.0" layoutY="176.0" />
+                                    <Button fx:id="btnGuardar" layoutX="62.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnGuardar_ActionPerformed" text="Guardar" />
+                                    <Button fx:id="btnCancelar1" layoutX="209.0" layoutY="230.0" mnemonicParsing="false" onAction="#mniCancelar_ActionPerformed" text="Cancelar" />
                                     <Label layoutX="25.0" layoutY="31.0" text="Nombre: " />
                                     <Label layoutX="25.0" layoutY="58.0" text="Valor: " />
                                     <Label layoutX="23.0" layoutY="87.0" text="Descripcion: " />
-                                    <Button fx:id="btnGuardar" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnGuardar_ActionPerformed" text="Guardar" />
-                                    <Button fx:id="btnCancelar1" layoutX="122.0" layoutY="192.0" mnemonicParsing="false" onAction="#mniCancelar_ActionPerformed" text="Cancelar" />
                                     <Label layoutX="23.0" layoutY="120.0" text="Consola" />
                                     <Label layoutX="23.0" layoutY="152.0" text="Genero" />
-                                    <TextField fx:id="txtConsola" layoutX="122.0" layoutY="116.0" />
-                                    <TextField fx:id="txtGenero" layoutX="122.0" layoutY="148.0" />
+                                    <Label layoutX="23.0" layoutY="180.0" text="URL" />
                                  </children>
                               </AnchorPane>
                            </content>

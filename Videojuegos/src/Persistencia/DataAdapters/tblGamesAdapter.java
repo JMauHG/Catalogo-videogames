@@ -42,6 +42,7 @@ public class tblGamesAdapter {
                             + "   ,descripcion                     "
                             + "   ,consola                         "
                             + "   ,genero                          "
+                            + "   ,imgURL                          "
                             + " FROM VideoJuegos                   "
                             + " WHERE genero =                     "
                             + "'" + Genero + "'");
@@ -49,7 +50,7 @@ public class tblGamesAdapter {
             ResultSet rs = verificarStmt.executeQuery();
 
             while (rs.next()) {
-                Game game = new Game(rs.getString("nombre"), rs.getDouble("valor"), rs.getString("descripcion"), rs.getString("consola"), rs.getString("genero"), rs.getInt("ID"));
+                Game game = new Game(rs.getString("nombre"), rs.getDouble("valor"), rs.getString("descripcion"), rs.getString("consola"), rs.getString("genero"), rs.getString("imgURL"), rs.getInt("ID"));
                 lsGame.add(game);
             }
 
@@ -77,14 +78,16 @@ public class tblGamesAdapter {
                             + "   ,valor                            "
                             + "   ,descripcion                      "
                             + "   ,consola                          "
-                            + "   ,genero)                          "
-                            + "   VALUES (?,?, ?, ?, ?)");
+                            + "   ,genero                          "
+                            + "   ,imgURL)                          "
+                            + "   VALUES (?, ?, ?, ?, ?, ?)");
 
             insert.setString(1, game.getNombre());
             insert.setDouble(2, game.getValor());
             insert.setString(3, game.getDescripcion());
             insert.setString(4, game.getConsola());
             insert.setString(5, game.getGenero());
+            insert.setString(6, game.getImgURL());
 
             insert.execute();
 
@@ -111,6 +114,7 @@ public class tblGamesAdapter {
                             + "   ,descripcion = ?             "
                             + "   ,consola = ?                 "
                             + "   ,genero = ?                  "
+                            + "   ,imgURL = ?                  "
                             + "   WHERE ID = ?                 ");
 
             update.setString(1, game.getNombre());
@@ -118,7 +122,8 @@ public class tblGamesAdapter {
             update.setString(3, game.getDescripcion());
             update.setString(4, game.getConsola());
             update.setString(5, game.getGenero());
-            update.setInt(6, game.getID());
+            update.setString(6, game.getImgURL());
+            update.setInt(7, game.getID());
 
             update.execute();
 
