@@ -1,0 +1,27 @@
+CREATE TABLE `casadecambio`.`tbltransaccion` (
+  `idtblTransaccion` INT NOT NULL,
+  `FechaHora` DATETIME NOT NULL,
+  `idDivisa` INT NOT NULL,
+  `idTipoTransaccion` INT NOT NULL,
+  `ValorTotal` FLOAT NOT NULL,
+  PRIMARY KEY (`idtblTransaccion`));
+
+
+ALTER TABLE `casadecambio`.`tbltransaccion` 
+CHANGE COLUMN `idtblTransaccion` `idtblTransaccion` INT(11) NOT NULL AUTO_INCREMENT ;
+
+
+CREATE TABLE `casadecambio`.`tbltipotransaccion` (
+  `idtblTipoTransaccion` INT NOT NULL,
+  `Descripcion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idtblTipoTransaccion`));
+
+ALTER TABLE `casadecambio`.`tbltipotransaccion` 
+CHANGE COLUMN `idtblTipoTransaccion` `idtblTipoTransaccion` INT(11) NOT NULL AUTO_INCREMENT ;
+
+
+ INSERT INTO Casadecambio.tblTipoTransaccion (descripcion) 
+ VALUES ('COMPRA');
+ 
+  INSERT INTO Casadecambio.tblTipoTransaccion (descripcion) 
+ VALUES ('VENTA');

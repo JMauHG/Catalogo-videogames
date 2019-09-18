@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SceneGamesController">
+   <children>
+      <TabPane fx:id="tpGames" layoutY="27.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="tabLista" text="Lista">
+               <content>
+                  <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="154.0">
+                           <children>
+                              <Label layoutX="76.0" layoutY="35.0" prefHeight="32.0" prefWidth="151.0" text="Generos" AnchorPane.bottomAnchor="339.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Accordion layoutX="-18.0" layoutY="32.0" prefHeight="339.0" prefWidth="151.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                                <panes>
+                                  <TitledPane animated="false" prefHeight="289.0" prefWidth="146.0" text="Terror">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tvHorror" layoutX="29.6" layoutY="27.6" onMouseClicked="#select" prefHeight="263.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                      <TableColumn fx:id="colNombreHorror" prefWidth="131.79999392032624" text="Nombre" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                  <TitledPane animated="false" prefHeight="66.0" prefWidth="154.0" text="Accion">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tvAccion" onMouseClicked="#selectAccion" prefHeight="263.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreAccion" prefWidth="131.79999392032624" text="Nombre" />
+                                                   </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                  <TitledPane animated="false" text="Disparos">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tvDisparos" onMouseClicked="#selectDisparos" prefHeight="263.0" prefWidth="152.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colNombreDisparos" prefWidth="131.79999392032624" text="Nombre" />
+                                                   </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                </panes>
+                              </Accordion>
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <HBox layoutX="241.0" layoutY="332.0" prefHeight="25.0" prefWidth="163.0">
+                                 <children>
+                                    <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#mniNuevo_ActionPerformed" text="Nuevo">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#mniEditar_ActionPerformed" text="Editar">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnBorrar" mnemonicParsing="false" onAction="#mniBorrarActionPerformed" text="Borrar">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                              <Label fx:id="lblNombre" layoutX="189.0" layoutY="169.0" text="Nombre" />
+                              <Label fx:id="lblValor" layoutX="272.0" layoutY="242.0" text="Precio Venta" />
+                              <Label fx:id="lblDescripcion" layoutX="181.0" layoutY="202.0" text="Descripcion" />
+                              <Label fx:id="lblConsola" layoutX="190.0" layoutY="242.0" text="Consola" />
+                              <Label fx:id="lblGenero" layoutX="78.0" layoutY="242.0" text="Genero" />
+                              <ImageView fx:id="img" fitHeight="109.0" fitWidth="146.0" layoutX="138.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+          <Tab fx:id="tabDetalle" text="Detalle">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane collapsible="false" layoutX="108.0" layoutY="47.0" prefHeight="277.0" prefWidth="385.0" text="Detalle de Divisas">
+                           <content>
+                              <AnchorPane prefHeight="284.0" prefWidth="371.0">
+                                 <children>
+                                    <TextField fx:id="txtNombre" layoutX="123.0" layoutY="27.0" />
+                                    <TextField fx:id="txtValor" layoutX="123.0" layoutY="54.0" />
+                                    <TextField fx:id="txtDescripcion" layoutX="122.0" layoutY="82.0" />
+                                    <Label layoutX="25.0" layoutY="31.0" text="Nombre: " />
+                                    <Label layoutX="25.0" layoutY="58.0" text="Valor: " />
+                                    <Label layoutX="23.0" layoutY="87.0" text="Descripcion: " />
+                                    <Button fx:id="btnGuardar" layoutX="227.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnGuardar_ActionPerformed" text="Guardar" />
+                                    <Button fx:id="btnCancelar1" layoutX="122.0" layoutY="192.0" mnemonicParsing="false" onAction="#mniCancelar_ActionPerformed" text="Cancelar" />
+                                    <Label layoutX="23.0" layoutY="120.0" text="Consola" />
+                                    <Label layoutX="23.0" layoutY="152.0" text="Genero" />
+                                    <TextField fx:id="txtConsola" layoutX="122.0" layoutY="116.0" />
+                                    <TextField fx:id="txtGenero" layoutX="122.0" layoutY="148.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
