@@ -1,6 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this license header, chooseconsola License Headers in Project Properties.
+ * To change this template file, chooseconsola Tools | Templates
  * and open the template in the editor.
  */
 package Controllers;
@@ -18,19 +18,26 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import javax.swing.JOptionPane;
 
 public class SceneGamesController implements Initializable {
+
+    ObservableList chooseconsola = FXCollections.observableArrayList();
+    ObservableList choosegenero = FXCollections.observableArrayList();
 
     tblGamesAdapter tblgameadapter = new tblGamesAdapter();
     Game gameActual;
@@ -73,12 +80,6 @@ public class SceneGamesController implements Initializable {
     private TextField txtDescripcion;
 
     @FXML
-    private TextField txtConsola;
-
-    @FXML
-    private TextField txtGenero;
-
-    @FXML
     private TextField txtImgURL;
 
     @FXML
@@ -88,10 +89,7 @@ public class SceneGamesController implements Initializable {
     private Label lblValor;
 
     @FXML
-    private Label lblDescripcion;
-
-    @FXML
-    private Label lblConsola;
+    private TextArea txtMostrardescripcion;
 
     @FXML
     private Label lblGenero;
@@ -121,6 +119,15 @@ public class SceneGamesController implements Initializable {
     private Button btnCancelar;
 
     @FXML
+    private Button btnBuscar;
+
+    @FXML
+    private ChoiceBox<String> chooseConsola;
+
+    @FXML
+    private ChoiceBox<String> chooseGenero;
+
+    @FXML
     private ImageView ivwPortada;
 
     @FXML
@@ -133,13 +140,26 @@ public class SceneGamesController implements Initializable {
             lblNombre.setText("Noting Selected");
         } else {
             lblNombre.setText(datoHorror.getNombre());
-            lblValor.setText(Double.toString(datoHorror.getValor()));
-            lblDescripcion.setText(datoHorror.getDescripcion());
-            lblConsola.setText(datoHorror.getConsola());
+            lblValor.setText("$" + (Double.toString(datoHorror.getValor())));
+
+            txtMostrardescripcion.setText(datoHorror.getDescripcion());
+
             lblGenero.setText(datoHorror.getGenero());
             File file = new File(datoHorror.getImgURL());
             Image image = new Image(file.toURI().toString());
             ivwPortada.setImage(image);
+
+            File filexbox = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\xbox.jpg");
+            Image xbox = new Image(filexbox.toURI().toString());
+
+            File fileps4 = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\ps4.jpg");
+            Image ps4 = new Image(fileps4.toURI().toString());
+
+            if ("XBOX".equals(datoHorror.getConsola())) {
+                ivwConsola.setImage(xbox);
+            } else {
+                ivwConsola.setImage(ps4);
+            }
         }
     }
 
@@ -150,13 +170,26 @@ public class SceneGamesController implements Initializable {
             lblNombre.setText("Noting Selected");
         } else {
             lblNombre.setText(datoAccion.getNombre());
-            lblValor.setText(Double.toString(datoAccion.getValor()));
-            lblDescripcion.setText(datoAccion.getDescripcion());
-            lblConsola.setText(datoAccion.getConsola());
+            lblValor.setText("$" + (Double.toString(datoAccion.getValor())));
+
+            txtMostrardescripcion.setText(datoAccion.getDescripcion());
+
             lblGenero.setText(datoAccion.getGenero());
             File file = new File(datoAccion.getImgURL());
             Image image = new Image(file.toURI().toString());
             ivwPortada.setImage(image);
+
+            File filexbox = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\xbox.jpg");
+            Image xbox = new Image(filexbox.toURI().toString());
+
+            File fileps4 = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\ps4.jpg");
+            Image ps4 = new Image(fileps4.toURI().toString());
+
+            if ("XBOX".equals(datoAccion.getConsola())) {
+                ivwConsola.setImage(xbox);
+            } else {
+                ivwConsola.setImage(ps4);
+            }
         }
     }
 
@@ -167,13 +200,26 @@ public class SceneGamesController implements Initializable {
             lblNombre.setText("Noting Selected");
         } else {
             lblNombre.setText(datoDisparos.getNombre());
-            lblValor.setText(Double.toString(datoDisparos.getValor()));
-            lblDescripcion.setText(datoDisparos.getDescripcion());
-            lblConsola.setText(datoDisparos.getConsola());
+            lblValor.setText("$" + (Double.toString(datoDisparos.getValor())));
+
+            txtMostrardescripcion.setText(datoDisparos.getDescripcion());
+
             lblGenero.setText(datoDisparos.getGenero());
             File file = new File(datoDisparos.getImgURL());
             Image image = new Image(file.toURI().toString());
             ivwPortada.setImage(image);
+
+            File filexbox = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\xbox.jpg");
+            Image xbox = new Image(filexbox.toURI().toString());
+
+            File fileps4 = new File("C:\\Users\\Mauricio\\Desktop\\Viedogames\\img\\ps4.jpg");
+            Image ps4 = new Image(fileps4.toURI().toString());
+
+            if ("XBOX".equals(datoDisparos.getConsola())) {
+                ivwConsola.setImage(xbox);
+            } else {
+                ivwConsola.setImage(ps4);
+            }
         }
     }
 
@@ -186,8 +232,6 @@ public class SceneGamesController implements Initializable {
         txtNombre.setText("");
         txtValor.setText("");
         txtDescripcion.setText("");
-        txtConsola.setText("");
-        txtGenero.setText("");
     }
 
     /*
@@ -226,15 +270,15 @@ public class SceneGamesController implements Initializable {
     @FXML
     void btnGuardar_ActionPerformed(ActionEvent event) {
         if (registroNuevo) {
-            Game nuevoGame = new Game(txtNombre.getText(), Double.parseDouble(txtValor.getText()), txtDescripcion.getText(), txtConsola.getText(), txtGenero.getText(), txtImgURL.getText());
+            Game nuevoGame = new Game(txtNombre.getText(), Double.parseDouble(txtValor.getText()), txtDescripcion.getText(), chooseConsola.getValue(), chooseGenero.getValue(), txtImgURL.getText());
             tblgameadapter.Insert(nuevoGame);
             registroNuevo = false;
         } else {
             gameActual.setNombre(txtNombre.getText());
             gameActual.setValor(Double.parseDouble(txtValor.getText()));
             gameActual.setDescripcion(txtDescripcion.getText());
-            gameActual.setConsola(txtConsola.getText());
-            gameActual.setGenero(txtGenero.getText());
+            gameActual.setConsola(chooseConsola.getValue());
+            gameActual.setGenero(chooseGenero.getValue());
             tblgameadapter.Update(gameActual);
         }
 
@@ -268,6 +312,10 @@ public class SceneGamesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        chooseConsola();
+        chooseGenero();
+        Buscar();
+
         tpgames = tpGames.getSelectionModel();
         tabDetalle.setDisable(true);
 
@@ -355,6 +403,46 @@ public class SceneGamesController implements Initializable {
         tabDetalle.setDisable(true);
         tabLista.setDisable(false);
         tpgames.select(tabLista);
-
     }
+
+    private void chooseConsola() {
+        chooseconsola.removeAll(chooseconsola);
+        String a = "XBOX";
+        String b = "PS4";
+        chooseconsola.addAll(a, b);
+        chooseConsola.getItems().addAll(chooseconsola);
+    }
+
+    private void chooseGenero() {
+        choosegenero.removeAll(choosegenero);
+        String a = "Horror";
+        String b = "Accion";
+        String c = "Disparos";
+        choosegenero.addAll(a, b, c);
+        chooseGenero.getItems().addAll(choosegenero);
+    }
+
+    private void Buscar() {
+        btnBuscar.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Buscar Imagen");
+
+            // Agregar filtros para facilitar la busqueda
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("All Images", "*.*"),
+                    new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                    new FileChooser.ExtensionFilter("PNG", "*.png")
+            );
+
+            Window stage = null;
+
+            // Obtener la imagen seleccionada
+            File imgFile = fileChooser.showOpenDialog(stage);
+
+            String path = imgFile.getAbsolutePath();
+
+            txtImgURL.setText(path);
+        });
+    }
+
 }
